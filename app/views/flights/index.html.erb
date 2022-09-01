@@ -1,2 +1,60 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Flights</h1>
+
+<%= form_with(url: flights_path, method: :get, data: { turbo: false }) do |f| %>
+  <div>
+    <%= f.label :departure_airport %>
+    <%= f.select(:departure_airport, @departure_airports) %>
+  </div>
+
+  <div>
+    <%= f.label :arrival_airport %>
+    <%= f.select(:arrival_airport, []) %>
+    
+  </div>
+
+  <div>
+    <%= f.label :departure_day %>
+    <%= f.text_field :departure_day %>
+    
+  </div>
+
+  <div>
+    <%= f.label :passenger_count %>
+    <%= f.select(:passenger_count, (1..4).to_a) %>
+  </div>
+
+  <div>
+    <%= f.submit 'Find Flight' %>
+  </div>
+<% end %>
+
+<% if params[:commit] %>
+  <h1>Search Results</h1>
+
+  <table style="border: 2px solid black;">
+    <thead>
+      <tr>
+        <td>Airline</td>
+        <td>Airport of Departure</td>
+        <td>Airport of Arrival</td>
+        <td>Departure Time</td>
+        <td>Arrival Time</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @flights.each do |flight| %>
+        <tr>
+          <td><%= flight.airline.name %></td>
+          <td><%= flight.departure_airport.name %></td>
+          <td><%= flight.arrival_airport.name %></td>
+          <td><%= flight.departure_time %></td>
+          <td><%= flight.arrival_time %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= javascript_include_tag 'kalendae/kalendae.standalone.js' %>
+<%= javascript_include_tag 'custom/main.js' %>
+
