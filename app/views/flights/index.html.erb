@@ -49,6 +49,13 @@
           <td><%= flight.arrival_airport.name %></td>
           <td><%= flight.departure_time %></td>
           <td><%= flight.arrival_time %></td>
+          <td>
+            <%= form_with(url: new_booking_path, method: :get) do |f| %>
+              <%= f.hidden_field :flight_id, value: flight.id %>
+              <%= f.hidden_field :passenger_count, value: params[:passenger_count] %>
+              <%= f.submit 'Select' %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
