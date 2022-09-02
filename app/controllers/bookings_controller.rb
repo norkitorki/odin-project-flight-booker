@@ -4,4 +4,15 @@ class BookingsController < ApplicationController
     @booking = @flight.bookings.new
     params[:passenger_count].to_i.times { @booking.passengers.new }
   end
+
+  def create
+    @booking = Booking.new(booking_params)
+
+    if @booking.save
+      redirect_to root_path, notice: 'Your booking has been successfully created.'
+    else
+      flash.now[:alert] = 'Your booking as not been created.'
+      render :new, status: :unprocessable_entity
+    end
+  end
 end
