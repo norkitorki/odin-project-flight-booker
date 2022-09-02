@@ -1,0 +1,24 @@
+<h2>Booking #<%= @booking.id %></h2>
+
+<%= render 'flights/flight_query', flights: [@flight] %>
+
+<% if @booking.passengers.any? %>
+  <h3>Passengers</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @booking.passengers.each do |passenger| %>
+        <tr>
+          <td><%= passenger.name %></td>
+          <td><%= passenger.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

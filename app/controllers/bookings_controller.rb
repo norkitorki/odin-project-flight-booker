@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.find(params[:id])
+    @flight = @booking.flight
+  end
+
   def new
     @flight = Flight.find(params[:flight_id])
     @booking = @flight.bookings.new
@@ -9,7 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to root_path, notice: 'Your booking has been successfully created.'
+      redirect_to booking_path(@booking), notice: 'Your booking has been successfully created.'
     else
       flash.now[:alert] = 'Your booking as not been created.'
       render :new, status: :unprocessable_entity
