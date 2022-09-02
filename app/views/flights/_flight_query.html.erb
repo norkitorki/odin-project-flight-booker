@@ -1,0 +1,31 @@
+<table style="border: 2px solid black;">
+  <thead>
+    <tr>
+      <td>Airline</td>
+      <td>Airport of Departure</td>
+      <td>Airport of Arrival</td>
+      <td>Departure Time</td>
+      <td>Arrival Time</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.each do |flight| %>
+      <tr>
+        <td><%= flight.airline.name %></td>
+        <td><%= flight.departure_airport.name %></td>
+        <td><%= flight.arrival_airport.name %></td>
+        <td><%= flight.departure_time %></td>
+        <td><%= flight.arrival_time %></td>
+        <% if controller_name == 'flights' %>
+          <td>
+            <%= form_with(url: new_booking_path, method: :get) do |f| %>
+              <%= f.hidden_field :flight_id, value: flight.id %>
+              <%= f.hidden_field :passenger_count, value: params[:passenger_count] %>
+              <%= f.submit 'Select' %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
