@@ -1,0 +1,25 @@
+<%= form_with(url: flights_path, method: :get, data: { turbo: false }, class: 'flight-search flex column gap-10') do |f| %>
+  <div class="field">
+    <%= f.label :departure_airport %>
+    <%= f.select(:departure_airport, departure_airports) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :arrival_airport %>
+    <%= f.select(:arrival_airport, []) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :departure_day %>
+    <%= f.text_field :departure_day, placeholder: 'DD/MM/YYYY' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passenger_count %>
+    <%= f.select(:passenger_count, (1..5).to_a) %>
+  </div>
+
+  <div class="actions align-self-center">
+    <%= f.submit 'Find Flight' %>
+  </div>
+<% end %>
