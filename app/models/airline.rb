@@ -1,5 +1,6 @@
 class Airline < ApplicationRecord
-  has_many :flights
+  has_many :flights,
+    dependent: :destroy
 
   has_many :departure_airports, 
     through: :flights
