@@ -9,7 +9,7 @@ const departures = gon.departures;
 let updateArrivalAirports = function(object, destinations) {
   options = "";
   destinations.forEach(airport => {
-    options += `<option value="${airport.id}">${airport.city}</option>`;
+    options += `<option value="${airport.id}">${airport.city} (${airport.name})</option>`;
   });
   return object.innerHTML = options;
 };
