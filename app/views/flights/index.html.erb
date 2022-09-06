@@ -1,32 +1,6 @@
 <h1>Flights</h1>
 
-<%= form_with(url: flights_path, method: :get, data: { turbo: false }) do |f| %>
-  <div>
-    <%= f.label :departure_airport %>
-    <%= f.select(:departure_airport, @departure_airports) %>
-  </div>
-
-  <div>
-    <%= f.label :arrival_airport %>
-    <%= f.select(:arrival_airport, []) %>
-    
-  </div>
-
-  <div>
-    <%= f.label :departure_day %>
-    <%= f.text_field :departure_day %>
-    
-  </div>
-
-  <div>
-    <%= f.label :passenger_count %>
-    <%= f.select(:passenger_count, (1..4).to_a) %>
-  </div>
-
-  <div>
-    <%= f.submit 'Find Flight' %>
-  </div>
-<% end %>
+<%= render 'form', departure_airports: @departure_airports %>
 
 <% if params[:commit] %>
   <%= render 'flight_query', flights: @flights %>
