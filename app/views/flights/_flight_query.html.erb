@@ -11,7 +11,7 @@
   <tbody>
     <% flights.each do |flight| %>
       <tr>
-        <td><%= flight.airline.name %></td>
+        <td><%= image_tag "airlines/#{flight.airline.name.split.join('_').downcase}.png", size: '30x30', class: 'airline-logo' %></td>
         <td><%= flight.departure_airport.name %></td>
         <td><%= flight.arrival_airport.name %></td>
         <td><%= flight.departure_time %></td>
