@@ -21,7 +21,7 @@
             <%= form_with(url: new_booking_path, method: :get) do |f| %>
               <%= f.hidden_field :flight_id, value: flight.id %>
               <%= f.hidden_field :passenger_count, value: params[:passenger_count] %>
-              <%= f.submit 'Select' %>
+              <%= f.submit 'Book' %>
             <% end %>
           </td>
         <% end %>
