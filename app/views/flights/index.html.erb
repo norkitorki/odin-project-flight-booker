@@ -1,8 +1,9 @@
-<h1>Flights</h1>
+<h2 class="heading">Flight Search</h2>
 
 <%= render 'form', departure_airports: @departure_airports %>
 
 <% if params[:commit] %>
+  <h2 class="heading">Available Flights(<%= @flights.length %>)</h2>
   <%= render 'flight_query', flights: @flights %>
 <% end %>
 
