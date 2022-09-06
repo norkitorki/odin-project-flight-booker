@@ -17,6 +17,7 @@ class FlightsController < ApplicationController
         destination = Airport.find(id)
         { id: destination.id,
           city: destination.city,
+          name: destination.name,
           departure_dates: destination.arrivals.where(departure_airport_id: a.id).pluck(:departure_time)
         }
       end
