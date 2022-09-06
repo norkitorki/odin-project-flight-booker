@@ -1,8 +1,8 @@
-<h1>New Booking</h1>
+<h2 class="heading">New Booking</h2>
 
 <%= render 'flights/flight_query', flights: [@flight] %>
 
-<h2>Passenger Details</h2>
+<h2 class="heading">Passenger Details</h2>
 
 <%= form_with(model: @booking) do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
