@@ -4,9 +4,10 @@
 
 <% if params[:commit] %>
   <h2 class="heading">Available Flights(<%= @flights.length %>)</h2>
-  <%= render 'flight_query', flights: @flights %>
+  <% if @flights.any? %>
+    <%= render 'flight_query', flights: @flights %>
+  <% end %>
 <% end %>
 
 <%= javascript_include_tag 'kalendae/kalendae.standalone.js' %>
 <%= javascript_include_tag 'custom/main.js' %>
-
