@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to 'Home', root_path, data: { turbo: false } %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
