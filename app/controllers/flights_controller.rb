@@ -1,14 +1,14 @@
 class FlightsController < ApplicationController
   def index
-    @departure_airports = airports_with_departures
+    @departure_airports = departure_airports
     gon.departures = collect_departures
     @flights = flights_query(params) if params[:commit]
   end
 
   private
 
-  def airports_with_departures
-    Airport.includes(:departures).map { |a| a.departures.any? ? [a.city, a.id] : nil }.compact
+  def departure_airports
+    Flight.includes(:departure_airport).map(&:departure_airport).uniq.map { |a| ["#{a.city} (#{a.name})", a.id] }
   end
 
   def collect_departures
