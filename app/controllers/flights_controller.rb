@@ -32,6 +32,6 @@ class FlightsController < ApplicationController
     t = Time.parse(flight_params[:departure_day].split('/').reverse.join('-'))
 
     query = 'departure_time BETWEEN ? AND ? AND departure_airport_id = ? AND arrival_airport_id = ?'
-    Flight.includes(:airline).where(query, t.midnight, t.end_of_day, d, a)
+    Flight.includes(:airline, :departure_airport, :arrival_airport).where(query, t.midnight, t.end_of_day, d, a)
   end
 end
