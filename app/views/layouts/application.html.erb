@@ -21,8 +21,9 @@
       <% end %>
 
       <nav>
-        <ul>
+        <ul class="flex gap-20">
           <li><%= link_to 'Home', root_path, data: { turbo: false } %></li>
+          <li><%= link_to 'Airlines', airlines_path %></li>
         </ul>
       </nav>
     </header>
