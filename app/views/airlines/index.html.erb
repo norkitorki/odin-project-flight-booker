@@ -1,2 +1,10 @@
-<h1>Airlines#index</h1>
-<p>Find me in app/views/airlines/index.html.erb</p>
+<h2 class="heading">Airlines</h2>
+
+<ul class="flex column gap-10">
+  <% @airlines.each do |airline| %>
+    <li class="flex gap-10 align-center">
+      <%= image_tag "airlines/#{airline.name.split.join('_').downcase}.png", size: '30x30', class: 'airline-logo' %>
+      <%= link_to(airline.name, airline) %> 
+    </li>
+  <% end %>
+</ul>
