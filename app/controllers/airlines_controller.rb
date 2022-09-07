@@ -4,5 +4,6 @@ class AirlinesController < ApplicationController
   end
 
   def show
+    @airline = Airline.find(params[:id])
   end
 end
