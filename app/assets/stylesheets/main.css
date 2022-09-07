@@ -2,6 +2,7 @@
 
 .heading {
   font-size: 22px;
+  font-weight: bold;
 }
 
 body {
@@ -53,10 +54,6 @@ input[type="submit"] {
 }
 
 /* Table */
-
-table {
-  
-}
 
 .airline-logo {
   border-radius: 50%;
