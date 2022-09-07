@@ -1,0 +1,67 @@
+/* misc */
+
+.heading {
+  font-size: 22px;
+}
+
+body {
+  display: grid;
+  grid-template: 50px 1fr / 55% 1fr;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: black;
+  grid-column: 1 / -1;
+}
+
+main {
+  grid-column: 1 / 2;
+  padding: 20px;
+}
+
+td {
+  text-align: center;
+}
+
+/* Flight query form */
+
+.field {
+  display: flex;
+  justify-content: space-between;
+}
+
+label, thead th {
+  font-weight: bold;
+}
+
+.flight-search select, .flight-search input[type="text"] {
+  background: #1a1919;
+  color: #f3f3f3;
+  border: 1px solid #6b6565;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+input[type="submit"] {
+  font-size: 110%;
+  padding: 4px 8px;
+  border: 1px solid #1a1919;
+}
+
+/* Table */
+
+table {
+  
+}
+
+.airline-logo {
+  border-radius: 50%;
+}
+
+table input[type="submit"] {
+  font-size: 80%;
+}
