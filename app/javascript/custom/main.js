@@ -2,7 +2,7 @@ const departureAirportSelect = document.getElementById('departure_airport');
 const arrivalAirportSelect   = document.getElementById('arrival_airport');
 const departureDayField      = document.getElementById('departure_day');
 
-const calendar = new Kalendae.Input(departureDayField, { format: 'DD/MM/YYYY', direction: 'today-future' });
+const calendar = new Kalendae.Input(departureDayField, { format: 'YYYY/MM/DD', direction: 'today-future' });
 
 const departures = gon.departures;
 
