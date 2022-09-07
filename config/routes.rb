@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[ show new create ]
 
+  resources :airlines, only: %i[ index show ]
+
   root "flights#index"
 end
