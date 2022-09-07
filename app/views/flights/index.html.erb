@@ -3,7 +3,7 @@
 <%= render 'form', departure_airports: @departure_airports %>
 
 <% if params[:commit] %>
-  <h2 class="heading">Available Flights(<%= @flights.length %>)</h2>
+  <h2 class="heading align-self-center">Available Flights(<%= @flights.length %>)</h2>
   <% if @flights.any? %>
     <%= render 'flight_query', flights: @flights %>
   <% end %>
