@@ -1,4 +1,4 @@
-<table>
+<table class="">
   <thead>
     <tr>
       <th>Airline</th>
@@ -11,7 +11,11 @@
   <tbody>
     <% flights.each do |flight| %>
       <tr>
-        <td><%= image_tag "airlines/#{flight.airline.name.split.join('_').downcase}.png", size: '30x30', class: 'airline-logo' %></td>
+        <td>
+          <%= link_to flight.airline do %>
+            <%= image_tag "airlines/#{flight.airline.name.split.join('_').downcase}.png", size: '30x30', class: 'airline-logo' %>
+          <% end %>
+        </td>
         <td><%= flight.departure_airport.name %></td>
         <td><%= flight.arrival_airport.name %></td>
         <td><%= flight.departure_time %></td>
