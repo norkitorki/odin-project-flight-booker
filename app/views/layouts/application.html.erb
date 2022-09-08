@@ -28,6 +28,16 @@
     </header>
 
     <main class="flex column gap-20">
+      <% if flash.any? %>
+        <div class="flash-messages align-self-center">
+          <% flash.each do |type, msg| %>
+            <% if %w[ alert notice ].include?(type) %>
+              <p class="<%= type %>"><%= msg %></p>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+  
       <%= yield %>
     </main>
 
