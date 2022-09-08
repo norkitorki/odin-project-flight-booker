@@ -4,7 +4,7 @@
 
 <h2 class="heading">Passenger Details</h2>
 
-<%= form_with(model: @booking, class: 'flex column gap-10') do |f| %>
+<%= form_with(model: @booking, class: 'flex column gap-20') do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
 
   <%= f.fields_for :passengers do |p_f| %>
