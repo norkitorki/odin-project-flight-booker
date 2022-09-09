@@ -10,6 +10,8 @@ class FlightsController < ApplicationController
 
   AIRPORT_OPTIONS = Proc.new { |airport| ["#{airport.city} (#{airport.name})", airport.id] }
 
+  def flight_query_params
+    params.permit(:departure_airport, :arrival_airport, :departure_day, :passenger_count, :commit)
   end
 
   def collect_departures
