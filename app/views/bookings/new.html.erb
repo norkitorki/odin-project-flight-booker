@@ -9,7 +9,7 @@
 
   <%= f.fields_for :passengers do |p_f| %>
     <div class="flex column gap-10">
-      <h3>Passenger #<%= p_f.options[:child_index] + 1 %></h3>
+      <h3 class="bold">Passenger #<%= p_f.options[:child_index] + 1 %></h3>
 
       <div>
         <%= p_f.label :name %>
