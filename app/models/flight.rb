@@ -1,4 +1,7 @@
 class Flight < ApplicationRecord
+  scope :departure_airports, -> { includes(:departure_airport).map(&:departure_airport).uniq! }
+  scope :arrival_airports,   -> { includes(:arrival_airport).map(&:arrival_airport).uniq! }
+
   belongs_to :airline
 
   belongs_to :departure_airport,
