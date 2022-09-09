@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
     @departure_airports = Flight.departure_airports.map(&AIRPORT_OPTIONS)
     @arrival_airports = Flight.arrival_airports.map(&AIRPORT_OPTIONS) - [@departure_airports.first]
     gon.departures = collect_departures
-    @flights = flights_query(params) if params[:commit]
+    @flights = flights_query(flight_query_params) if params[:commit]
   end
 
   private
@@ -29,10 +29,10 @@ class FlightsController < ApplicationController
     end
   end
 
-  def flights_query(flight_params)
-    d = flight_params[:departure_airport]
-    a = flight_params[:arrival_airport]
-    t = Time.parse(flight_params[:departure_day].split('/').reverse.join('-'))
+  def flights_query(params)
+    d = params[:departure_airport]
+    a = params[:arrival_airport]
+    t = Time.parse(params[:departure_day].split('/').join('-'))
 
     query = 'departure_time BETWEEN ? AND ? AND departure_airport_id = ? AND arrival_airport_id = ?'
     Flight.includes(:airline, :departure_airport, :arrival_airport).where(query, t.midnight, t.end_of_day, d, a)
