@@ -8,8 +8,8 @@ class FlightsController < ApplicationController
 
   private
 
-  def departure_airports
-    Flight.includes(:departure_airport).map(&:departure_airport).uniq.map { |a| ["#{a.city} (#{a.name})", a.id] }
+  AIRPORT_OPTIONS = Proc.new { |airport| ["#{airport.city} (#{airport.name})", airport.id] }
+
   end
 
   def collect_departures
