@@ -4,20 +4,19 @@
 
 <h2 class="heading">Passengers</h2>
 
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @booking.passengers.each do |passenger| %>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
+        <td><%= passenger.name %></td>
+        <td><%= passenger.email %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @booking.passengers.each do |passenger| %>
-        <tr>
-          <td><%= passenger.name %></td>
-          <td><%= passenger.email %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+    <% end %>
+  </tbody>
+</table>
