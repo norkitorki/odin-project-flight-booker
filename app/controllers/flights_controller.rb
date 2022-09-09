@@ -1,6 +1,7 @@
 class FlightsController < ApplicationController
   def index
     @departure_airports = Flight.departure_airports.map(&AIRPORT_OPTIONS)
+    @arrival_airports = Flight.arrival_airports.map(&AIRPORT_OPTIONS) - [@departure_airports.first]
     gon.departures = collect_departures
     @flights = flights_query(params) if params[:commit]
   end
