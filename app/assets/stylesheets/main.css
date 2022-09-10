@@ -12,9 +12,7 @@ body {
   grid-template: 50px 1fr / 55% 1fr;
 }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 
 header {
   background-color: #1a1919;
