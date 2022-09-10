@@ -1,6 +1,7 @@
 /* misc */
 
-.heading {
+.bold { font-weight: bold; }
+
   font-size: 22px;
   font-weight: bold;
 }
