@@ -1,9 +1,9 @@
-<h2 class="heading align-self-center">Flight Search</h2>
+<h2 class="heading bold align-self-center">Flight Search</h2>
 
 <%= render 'form', departure_airports: @departure_airports, arrival_airports: @arrival_airports %>
 
 <% if params[:commit] %>
-  <h2 class="heading align-self-center">Available Flights(<%= @flights.size %>)</h2>
+  <h3 class="heading bold align-self-center">Available Flights(<%= @flights.size %>)</h3>
   <% if @flights.any? %>
     <%= render 'flight_query', flights: @flights %>
   <% end %>

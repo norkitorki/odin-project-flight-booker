@@ -1,8 +1,8 @@
-<h2 class="heading">New Booking</h2>
+<h2 class="heading bold">New Booking</h2>
 
 <%= render 'flights/flight_query', flights: [@flight] %>
 
-<h2 class="heading">Passenger Details</h2>
+<h3 class="heading bold">Passenger Details</h3>
 
 <%= form_with(model: @booking, class: 'booking-form flex column gap-20') do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
