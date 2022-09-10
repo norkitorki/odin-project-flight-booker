@@ -28,15 +28,18 @@ main {
   padding: 20px;
 }
 
-td {
-  text-align: center;
+/* Flash */
+
+.flash-messages p {
+  color: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px;
 }
 
-/* Flight query form */
+.flash-messages .notice { background-color: #03380c; }
 
-.field {
-  display: flex;
-  justify-content: space-between;
+.flash-messages .alert { background-color: #910c0c; }
+
 }
 
 label, thead th {
