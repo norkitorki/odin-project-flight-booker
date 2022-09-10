@@ -7,6 +7,7 @@ h2.heading { font-size: 22px; }
 h3.heading { font-size: 20px; }
 
 body {
+  height: 100%;
   display: grid;
   grid-template: 50px 1fr / 55% 1fr;
 }
