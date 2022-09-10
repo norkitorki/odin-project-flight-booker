@@ -72,10 +72,20 @@ input[type="submit"] {
 
 /* Table */
 
-.airline-logo {
-  border-radius: 50%;
+thead th {
+  color: #f3f3f3;
+  font-weight: bold;
+  background-color: #1a1919;
 }
 
-table input[type="submit"] {
-  font-size: 80%;
+tbody tr { border-bottom: 1px solid #1a1919; }
+
+.airline-logo { border-radius: 50%; }
+
+table input[type="submit"] { font-size: 75%; }
+
+thead th, tbody td {
+  padding: 10px 0 10px 0;
+  vertical-align: middle;
+  text-align: center;
 }
