@@ -21,6 +21,8 @@ header {
   grid-column: 1 / -1;
 }
 
+header a { color: #f3f3f3; }
+
 main {
   grid-column: 1 / 2;
   padding: 20px;
