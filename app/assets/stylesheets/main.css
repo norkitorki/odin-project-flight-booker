@@ -40,24 +40,34 @@ main {
 
 .flash-messages .alert { background-color: #910c0c; }
 
-}
+/* Forms */
 
-label, thead th {
-  font-weight: bold;
-}
+form label { font-weight: bold; }
 
-.flight-search select, .flight-search input[type="text"] {
-  background: #1a1919;
+select, input {
+  background: #1a1919e3;
   color: #f3f3f3;
-  border: 1px solid #6b6565;
+  border: 1px solid transparent;
   border-radius: 4px;
   padding: 8px;
+}
+
+.booking-form input:not([type="submit"]) { 
+  background: #eeeded; 
+  color: #000000;
+  border: 1px solid #b9b0b0;
+}
+
+select:hover, input:hover { outline: 1px solid #06cccc; }
+
+.kalendae {
+  background: #1a1919;
+  color: #f3f3f3;
 }
 
 input[type="submit"] {
   font-size: 110%;
   padding: 4px 8px;
-  border: 1px solid #1a1919;
 }
 
 /* Table */
