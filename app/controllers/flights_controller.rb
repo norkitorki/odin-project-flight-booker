@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
   AIRPORT_OPTIONS = Proc.new { |airport| ["#{airport.city} (#{airport.name})", airport.id] }
 
   def flight_query_params
-    params.permit(:departure_airport, :arrival_airport, :departure_day, :passenger_count, :commit)
+    params.permit(:departure_airport, :arrival_airport, :departure_date, :passenger_count, :commit)
   end
 
   def collect_departures
@@ -32,7 +32,7 @@ class FlightsController < ApplicationController
   def flights_query(params)
     d = params[:departure_airport]
     a = params[:arrival_airport]
-    t = Time.parse(params[:departure_day].split('/').join('-'))
+    t = Time.parse(params[:departure_date].split('/').join('-'))
 
     query = 'departure_time BETWEEN ? AND ? AND departure_airport_id = ? AND arrival_airport_id = ?'
     Flight.includes(:airline, :departure_airport, :arrival_airport).where(query, t.midnight, t.end_of_day, d, a)

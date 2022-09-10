@@ -1,8 +1,8 @@
 const departureAirportSelect = document.getElementById('departure_airport');
 const arrivalAirportSelect   = document.getElementById('arrival_airport');
-const departureDayField      = document.getElementById('departure_day');
+const departureDateField      = document.getElementById('departure_date');
 
-const calendar = new Kalendae.Input(departureDayField, { format: 'YYYY/MM/DD', direction: 'today-future' });
+const calendar = new Kalendae.Input(departureDateField, { format: 'YYYY/MM/DD', direction: 'today-future' });
 
 const departures = gon.departures;
 
@@ -28,7 +28,7 @@ blackoutDepartureDates(calendar, departures[0].destinations[0].departure_dates);
 
 [departureAirportSelect, arrivalAirportSelect].forEach(airportSelect => {
   airportSelect.addEventListener('change', () => {
-    departureDayField.value = "";
+    departureDateField.value = "";
 
     const selectedDepartureAirport = departures[departureAirportSelect.options.selectedIndex];
     if (airportSelect === departureAirportSelect) {
