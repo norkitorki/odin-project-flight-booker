@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Date</th>
+      <th></th>
+    <tr>
+  </thead>
+  <tbody>
+    <% bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.flight.departure_airport.name %></td>
+        <td><%= booking.flight.arrival_airport.name %></td>
+        <td><%= booking.flight.departure_time %></td>
+        <td><%= link_to 'Show', booking_path(booking) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
