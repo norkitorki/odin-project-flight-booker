@@ -30,4 +30,8 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:flight_id, passengers_attributes: %i[ name email ])
   end
+
+  def find_bookings(query)
+    Passenger.where('name = :query OR email = :query', query: query).includes(:booking).map(&:booking)
+  end
 end
