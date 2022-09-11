@@ -1,0 +1,18 @@
+<h2 class="heading bold align-self-center">Find Bookings</h2>
+
+<%= form_with(url: bookings_path, method: :get, class: 'align-self-center flex column align-center gap-20') do |f| %>
+  <div class="flex column align-center gap-10">
+    <%= f.label :search, 'Username or email address' %>
+    <%= f.text_field :search, required: true %>
+  </div>
+
+  <div>
+    <%= f.submit 'Find Booking' %>
+  </div>
+<% end %>
+
+<% if @bookings %>
+  <h3 class="heading bold align-self-center">Bookings</h3>
+
+  <%= render 'booking_query', bookings: @bookings %>
+<% end %>
