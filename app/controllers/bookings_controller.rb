@@ -1,5 +1,12 @@
 class BookingsController < ApplicationController
   def index
+    if params[:commit]
+      @bookings = find_bookings(params[:search])
+      if @bookings.empty?
+        flash.now[:alert] = 'No booking has been found.'
+        render :index, status: :unprocessable_entity
+      end
+    end
   end
 
   def show
