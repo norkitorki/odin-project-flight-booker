@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
   def index
     @departure_airports = Flight.departure_airports.map(&AIRPORT_OPTIONS)
     @arrival_airports = Flight.arrival_airports.map(&AIRPORT_OPTIONS) - [@departure_airports.first]
-    gon.departures = collect_departures
+    gon.departures = Airport.collect_departures
     @flights = flights_query(flight_query_params) if params[:commit]
   end
 
@@ -12,21 +12,6 @@ class FlightsController < ApplicationController
 
   def flight_query_params
     params.permit(:departure_airport, :arrival_airport, :departure_date, :passenger_count, :commit)
-  end
-
-  def collect_departures
-    Airport.includes(:departures, :arrivals).select { |a| a.departures.any? }.map do |a|
-      destinations = a.departures.pluck(:arrival_airport_id).uniq.map do |id|
-        destination = Airport.find(id)
-        { id: destination.id,
-          city: destination.city,
-          name: destination.name,
-          departure_dates: destination.arrivals.where(departure_airport_id: a.id).pluck(:departure_time)
-        }
-      end
-
-      { id: a.id, city: a.city, destinations: destinations }
-    end
   end
 
   def flights_query(params)
