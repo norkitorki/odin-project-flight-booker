@@ -1,5 +1,7 @@
 class Booking < ApplicationRecord
   before_validation :validate_passenger_existence
+  after_validation  :validate_passenger_list_presence
+
   belongs_to :flight
 
   has_and_belongs_to_many :passengers
@@ -21,4 +23,11 @@ class Booking < ApplicationRecord
       end
     end
   end
+
+  def validate_passenger_existence
+    self.passengers = passengers.to_a.map do |passenger|
+      Passenger.find_by(name: passenger.name, email: passenger.email) || passenger
+    end
+  end
+
 end
