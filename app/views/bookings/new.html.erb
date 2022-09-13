@@ -1,3 +1,7 @@
+<% if @booking.errors.any? %>
+  <%= render 'public/form_errors', resource: @booking %>
+<% end %>
+
 <h2 class="heading bold">New Booking</h2>
 
 <%= render 'flights/flight_query', flights: [@flight] %>
