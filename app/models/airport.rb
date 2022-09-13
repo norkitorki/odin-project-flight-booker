@@ -20,7 +20,7 @@ class Airport < ApplicationRecord
         }
       end
 
-      { id: a.id, city: a.city, destinations: destinations }
+      { id: a.id, city: a.city, name: a.name, destinations: destinations }
     end
   end
 end
