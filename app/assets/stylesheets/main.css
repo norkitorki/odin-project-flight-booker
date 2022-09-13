@@ -14,6 +14,8 @@ body {
 
 a { text-decoration: none; }
 
+a:hover { text-decoration: underline; }
+
 header {
   background-color: #1a1919;
   grid-column: 1 / -1;
