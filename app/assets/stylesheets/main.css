@@ -26,17 +26,19 @@ main {
   padding: 20px;
 }
 
-/* Flash */
+/* Flash/Errors */
 
-.flash-messages p {
+.flash-messages p, .form-errors {
   color: #f3f3f3;
   border-radius: 8px;
   padding: 10px;
 }
 
+.form-errors { font-size: 90%; }
+
 .flash-messages .notice { background-color: #03380c; }
 
-.flash-messages .alert { background-color: #910c0c; }
+.flash-messages .alert, .form-errors { background-color: #910c0c; }
 
 /* Forms */
 
