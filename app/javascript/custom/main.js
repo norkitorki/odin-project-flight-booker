@@ -1,6 +1,6 @@
 const departureAirportSelect = document.getElementById('departure_airport');
 const arrivalAirportSelect   = document.getElementById('arrival_airport');
-const departureDateField      = document.getElementById('departure_date');
+const departureDateField     = document.getElementById('departure_date');
 
 const calendar = new Kalendae.Input(departureDateField, { format: 'YYYY/MM/DD', direction: 'today-future' });
 
