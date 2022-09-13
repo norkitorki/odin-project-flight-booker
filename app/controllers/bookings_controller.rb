@@ -2,8 +2,8 @@ class BookingsController < ApplicationController
   def index
     if params[:commit]
       @bookings = find_bookings(params[:search])
-      if @bookings.empty?
-        flash.now[:alert] = 'No booking has been found.'
+      if @bookings.nil? || @bookings.empty?
+        flash.now[:alert] = 'No bookings have been found.'
         render :index, status: :unprocessable_entity
       end
     end
@@ -39,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def find_bookings(query)
-    Passenger.where('name = :query OR email = :query', query: query).includes(:booking).map(&:booking)
+    Passenger.where('name = :query OR email = :query', query: query).first&.bookings
   end
 end

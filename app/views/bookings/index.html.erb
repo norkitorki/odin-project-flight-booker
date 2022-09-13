@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<% if @bookings %>
+<% if @bookings && @bookings.any? %>
   <h3 class="heading bold align-self-center">Bookings</h3>
 
   <%= render 'booking_query', bookings: @bookings %>
