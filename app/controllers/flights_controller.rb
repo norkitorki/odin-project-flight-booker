@@ -1,14 +1,15 @@
 class FlightsController < ApplicationController
   def index
-    @departure_airports = Flight.departure_airports.map(&AIRPORT_OPTIONS)
-    @arrival_airports = Flight.arrival_airports.map(&AIRPORT_OPTIONS) - [@departure_airports.first]
-    gon.departures = Airport.collect_departures
+    @departures = Airport.collect_departures
+    @departure_airports = @departures.map(&AIRPORT_OPTIONS)
+    @arrival_airports   = @departures.map { |a| a[:destinations] }.flatten.map(&AIRPORT_OPTIONS)
+    gon.departures      = @departures
     @flights = flights_query(flight_query_params) if params[:commit]
   end
 
   private
 
-  AIRPORT_OPTIONS = Proc.new { |airport| ["#{airport.city} (#{airport.name})", airport.id] }
+  AIRPORT_OPTIONS = Proc.new { |airport| ["#{airport[:city]} (#{airport[:name]})", airport[:id]] }
 
   def flight_query_params
     params.permit(:departure_airport, :arrival_airport, :departure_date, :passenger_count, :commit)
