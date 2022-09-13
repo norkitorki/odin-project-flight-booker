@@ -8,9 +8,9 @@
 
 <h3 class="heading bold">Passenger Details</h3>
 
-<%= form_with(model: @booking, class: 'booking-form flex column gap-20') do |f| %>
+<%= form_with(model: @booking, url: { action: :create, passenger_count: params[:passenger_count] }, data: { turbo: false }, class: 'booking-form flex column gap-20') do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
-
+  
   <%= f.fields_for :passengers do |p_f| %>
     <div class="flex column gap-10">
       <h3 class="bold">Passenger #<%= p_f.options[:child_index] + 1 %></h3>
