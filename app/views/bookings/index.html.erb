@@ -2,7 +2,7 @@
 
 <%= form_with(url: bookings_path, method: :get, class: 'align-self-center flex column align-center gap-20') do |f| %>
   <div class="flex column align-center gap-10">
-    <%= f.label :search, 'Username or email address' %>
+    <%= f.label :search, 'Passenger name or email address' %>
     <%= f.text_field :search, required: true %>
   </div>
 
