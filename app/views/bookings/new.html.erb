@@ -1,12 +1,12 @@
-<% if @booking.errors.any? %>
-  <%= render 'public/form_errors', resource: @booking %>
-<% end %>
-
 <h2 class="heading bold">New Booking</h2>
 
 <%= render 'flights/flight_query', flights: [@flight] %>
 
 <h3 class="heading bold">Passenger Details</h3>
+
+<% if @booking.errors.any? %>
+  <%= render 'public/form_errors', resource: @booking %>
+<% end %>
 
 <%= form_with(model: @booking, url: { action: :create, passenger_count: params[:passenger_count] }, data: { turbo: false }, class: 'booking-form flex column gap-20') do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
