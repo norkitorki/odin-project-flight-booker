@@ -36,7 +36,10 @@ main {
   padding: 10px;
 }
 
-.form-errors { font-size: 90%; }
+.form-errors {
+  width: max-content;
+  font-size: 90%; 
+}
 
 .flash-messages .notice { background-color: #03380c; }
 
