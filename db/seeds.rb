@@ -23,6 +23,8 @@ Airport.create(
   ]
 )
 
+AIRPORTS = Airport.all
+
 # Create some airlines
 Airline.create(
   [
@@ -30,7 +32,9 @@ Airline.create(
     { name: 'Norwegian' },
     { name: 'Scandinavian Airlines' },
     { name: 'British Airways' },
-    { name: 'Germanwings' },
     { name: 'Air France' }
   ]
 )
+
+AIRLINES = Airline.all
+
