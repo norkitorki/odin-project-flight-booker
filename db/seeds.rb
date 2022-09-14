@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Delete all entries from tables
-Airport.delete_all
-Airline.delete_all
+Airport.destroy_all
+Airline.destroy_all
+Flight.destroy_all
 
 # Create some airports
 Airport.create(
