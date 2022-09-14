@@ -38,3 +38,19 @@ Airline.create(
 
 AIRLINES = Airline.all
 
+# Create some flights
+
+365.times do |i|
+  departure_airport = AIRPORTS.sample
+  arrival_airport   = (AIRPORTS - [departure_airport]).sample
+  3.times do |y|
+    departure_time = Time.now.midnight + (i + y).days + rand(9..21).hours + rand(1..59).minutes
+    airline        = AIRLINES.sample
+    Flight.create(
+      departure_time: departure_time, 
+      airline_id: airline.id, 
+      departure_airport_id: departure_airport.id, 
+      arrival_airport_id: arrival_airport.id, 
+      arrival_time: departure_time + 2.hours + rand(0..59).minutes)
+  end
+end
