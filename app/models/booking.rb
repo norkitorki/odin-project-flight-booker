@@ -10,7 +10,6 @@ class Booking < ApplicationRecord
     presence: true
 
   accepts_nested_attributes_for :passengers, 
-    allow_destroy: true,
     reject_if: :all_blank
 
   private
