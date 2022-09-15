@@ -1,24 +1,9 @@
-# README
+# Odin-Project: Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the [Odin Project Flight Booker](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker) project.
 
-Things you may want to cover:
+In this project we are building a simple flight booking application in Ruby On Rails.
 
-* Ruby version
+## Note on Kalendae date picker
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app uses the amazing [Kalendae](https://github.com/Twipped/Kalendae) date picker which requires JavaScript to work.
