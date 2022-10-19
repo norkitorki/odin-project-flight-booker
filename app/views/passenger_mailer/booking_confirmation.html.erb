@@ -1,5 +1,5 @@
-<h1>Passenger#booking_confirmation</h1>
+<h1>Booking #<%= @booking.id %> Confirmation</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/passenger_mailer/booking_confirmation.html.erb
-</p>
+<p>Thank you <em><%= @passenger.name %></em> for booking your flight with us.</p>
+
+<p>To view your booking information, please click <%= link_to 'here', booking_url(@booking) %>.</p>

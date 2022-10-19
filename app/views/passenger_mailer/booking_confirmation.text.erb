@@ -1,3 +1,5 @@
-Passenger#booking_confirmation
+Booking #<%= @booking.id %> Confirmation
 
-<%= @greeting %>, find me in app/views/passenger_mailer/booking_confirmation.text.erb
+Thank you <%= @passenger.name %> for booking your flight with us.
+
+You can view your booking information at <%= booking_url(@booking) %>
