@@ -24,6 +24,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
+      @booking.passengers.each do |passenger|
+        PassengerMailer.booking_confirmation(@booking, passenger).deliver_later
+      end
       redirect_to booking_path(@booking), notice: 'Your booking has been successfully created.'
     else
       @flight = Flight.find(@booking.flight_id)
