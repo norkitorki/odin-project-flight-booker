@@ -1,4 +1,5 @@
 class PassengerMailer < ApplicationMailer
+  default from: email_address_with_name('noreply@flight-booker.example', 'noreply')
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
